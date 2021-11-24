@@ -1,0 +1,162 @@
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider-container {
+  height: 100vh;
+  display: inline-flex;
+  overflow: hidden;
+  /* will be animating via JS */
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.slide {
+  max-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(/images/pattern-bg.svg), url(/images/pattern-quotes.svg),
+    url(/images/pattern-curve.svg);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 85%, 15%, 75%;
+  background-position: top 1.4rem center, top 35rem center, bottom left;
+}
+
+.slide-show {
+  position: relative;
+  top: -3.7rem;
+}
+
+.slide-show img {
+  max-width: 80%;
+  max-height: 80%;
+  box-shadow: 0px 33px 64px -9px rgba(132, 127, 168, 0.74);
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 2.7rem;
+}
+
+.slide-content p.description {
+  font-size: 1.8rem;
+  font-weight: 300;
+  opacity: 0.7;
+  color: hsl(240, 38%, 20%);
+}
+
+.slide-content .person-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.slide-content .person-details > h6 {
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.slide-content .person-details h6.name {
+  font-size: 1.55rem;
+}
+
+.slide-content .person-details h6.job-title {
+  font-size: 1.45rem;
+  color: hsl(240, 18%, 77%);
+}
+
+.arrows {
+  position: absolute;
+  bottom: 36.2rem;
+  left: 15rem;
+  display: inline-flex;
+  gap: 3rem;
+  padding: 1.2rem 1.3rem;
+  border-radius: 4rem;
+  background: white;
+}
+
+.arrow-left img,
+.arrow-right img {
+  width: 1rem;
+  height: 1.3rem;
+  cursor: pointer;
+}
+
+/* media query */
+@media screen and (min-width: 1440px) {
+  .slide {
+    flex-direction: row-reverse;
+    text-align: left;
+    background-size: 48%, 8%, 45%;
+    background-position: right 10rem top 5.5rem, top 22.5rem left 26rem,
+      bottom left;
+  }
+
+  .slide-show img {
+    max-width: 54rem;
+    max-height: 54rem;
+  }
+
+  .slide-show {
+    top: -6rem;
+    right: 17.4rem;
+  }
+
+  .slide-show button {
+    left: 6.6rem;
+    bottom: -2.5rem;
+    gap: 4.5rem;
+    padding: 2rem 2.2rem;
+    border-radius: 3rem;
+  }
+
+  .slide-show button img {
+    height: 1.7rem;
+  }
+
+  .slide-content {
+    align-items: flex-start;
+    gap: 3rem;
+    margin: 0 5.8rem 6rem 13.8rem;
+    z-index: 1;
+  }
+
+  .slide-content p.description {
+    font-size: 3.2rem;
+    font-weight: 200;
+    opacity: 1;
+  }
+
+  .slide-content .person-details {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .slide-content .person-details > h6.name,
+  .slide-content .person-details > h6.job-title {
+    font-size: 2rem;
+  }
+
+  .arrows {
+    left: 80.4rem;
+    bottom: 22.2rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .arrow-left img,
+  .arrow-right img {
+    width: 1.3rem;
+    height: 1.5rem;
+  }
+}
